@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>خطط تدريب Huma-volve</title>
+  <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+  <style>
+    :root{
+      --brand-blue:#0b71d0;--brand-orange:#ff7a2d;--muted:#6b7280;
+      --card-bg:#ffffff;--page-bg:#f4f7fb;--table-border:#e6eef9;
+      font-family:Inter,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    
+    body{
+      margin:0;
+      background:var(--page-bg);
+      color:#0f172a;
+      padding-block:20px;
+      padding-inline:16px;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5;
+    }
+
+    .container{
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    header{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:20px;
+      flex-wrap:wrap;
+    }
+
+    /* شعار من الرابط الرسمي */
+    .logo{
+      width:60px;
+      height:60px;
+      border-radius:12px;
+      overflow:hidden;
+      flex-shrink:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      box-shadow:0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+    h1{
+      margin:0;
+      font-size:18px;
+      font-weight:600;
+    }
+
+    p.lead{
+      margin:6px 0 16px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .card{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:16px;
+      box-shadow:0 6px 18px rgba(11,113,208,.06);
+      margin-bottom:20px;
+      border:1px solid var(--table-border);
+    }
+
+    h3{
+      margin:0 0 8px 0;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .muted{
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.5;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:13px;
+      margin-top:8px;
+    }
+
+    thead th{
+      text-align:right;
+      padding:10px 6px;
+      background:linear-gradient(90deg,rgba(11,113,208,.06),rgba(255,122,45,.04));
+      color:var(--brand-blue);
+      font-weight:600;
+      border-bottom:1px solid var(--table-border);
+      font-size:12.5px;
+    }
+
+    tbody td{
+      padding:8px 6px;
+      border-bottom:1px solid var(--table-border);
+      color:#0f172a;
+      font-size:13px;
+    }
+
+    .flexible-note{
+      background:#f0f7ff;
+      border:1px solid #b8d4f5;
+      padding:10px;
+      border-radius:8px;
+      margin-top:12px;
+      font-size:12.5px;
+      color:#1e40af;
+      line-height:1.5;
+    }
+
+    .flexible-note strong{
+      color:#1e3a8a;
+    }
+
+    @media (max-width: 480px) {
+      body { padding-inline:12px; padding-block:16px; }
+      .logo { width:50px; height:50px; }
+      h1 { font-size:17px; }
+      .card { padding:14px; }
+      table { font-size:12px; }
+      thead th, tbody td { padding:6px 4px; font-size:11.5px; }
+      .flexible-note { font-size:11.5px; padding:8px; }
+    }
+
+    @media (max-width: 360px) {
+      thead th, tbody td { font-size:11px; padding:5px 3px; }
+    }
+
+    footer{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:8px;
+      text-align:center;
+    }
+
+    footer > div{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      flex-wrap:wrap;
+      font-size:12px;
+    }
+
+    .note{
+      background:#fff7ed;
+      border:1px solid #ffe3c6;
+      padding:10px;
+      border-radius:8px;
+      color:#7a4b00;
+      font-size:12.5px;
+      line-height:1.5;
+      margin-top:8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- الهيدر مع اللوجو الرسمي -->
+    <header>
+      <div class="logo">
+        <img src="https://huma-volve.com/guest/assets/images/logo.png" alt="شعار Huma-volve">
+      </div>
+      <div>
+        <h1>Huma-volve — خطط التدريب</h1>
+        <p class="lead">خطط مدمجة وواضحة للمشتركين – الساعات اليومية والأسعار بالجنيه المصري.</p>
+      </div>
+    </header>
+
+    <!-- الخطط (واحدة تحت الأخرى) -->
+    <div id="plans-container"></div>
+
+    <!-- ملحوظة عامة -->
+    <div class="card">
+      <div class="note">
+        <strong>ملحوظة:</strong> الأسعار بالجنيه المصري. إجمالي الساعات تقريبي (حسب 4 أو 8 ساعات/يوم × 5 أيام × عدد الأسابيع).
+      </div>
+    </div>
+
+    <footer>
+      <div>
+        <div>Huma-volve • Training Plans</div>
+        <div class="muted">مُعدّة للمشتركين والمتدربين</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- جافاسكريبت لبناء الجداول + وصف الساعات المرنة -->
+  <script type="module">
+    const plans = [
+      {
+        title: "خطة الطلاب / مساعدي التدريس",
+        desc: "الهيكل اليومي: 5 أيام/أسبوع — إلزامي + مرن",
+        rows: [
+          ["1 شهر", "5", "2", "2", "80", "650"],
+          ["2 شهر", "5", "2", "2", "160", "1,170"],
+          ["3 شهر", "5", "2", "2", "240", "1,660"]
+        ]
+      },
+      {
+        title: "خطة الخريجين",
+        desc: "الهيكل اليومي: 5 أيام/أسبوع — مكثف (إلزامي + مرن)",
+        rows: [
+          ["1 شهر", "5", "4", "4", "160", "1,250"],
+          ["2 شهر", "5", "4", "4", "320", "2,250"],
+          ["3 شهر", "5", "4", "4", "480", "3,190"]
+        ]
+      }
+    ];
+
+    const container = document.getElementById('plans-container');
+    const headers = ["المدة", "أيام/أسبوع", "إلزامي (س/يوم)", "مرن (س/يوم)", "إجمالي الساعات (تقريبي)", "السعر (ج.م)"];
+
+    const flexibleNote = `
+      <div class="flexible-note">
+        <strong>الساعات المرنة:</strong> يمكنك إكمالها في أي وقت خلال اليوم حسب جدولك الشخصي، وتُسجّل من خلال إنجاز المهام (Tasks) المطلوبة.
+      </div>
+    `;
+
+    plans.forEach(plan => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h3>${plan.title}</h3>
+        <p class="muted">${plan.desc}</p>
+        <table aria-label="${plan.title}">
+          <thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+          <tbody>
+            ${plan.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}
+          </tbody>
+        </table>
+        ${flexibleNote}
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
