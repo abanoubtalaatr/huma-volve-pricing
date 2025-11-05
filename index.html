@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -6,20 +5,22 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>خطط تدريب Huma-volve</title>
   <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --brand-blue:#0b71d0;--brand-orange:#ff7a2d;--muted:#6b7280;
-      --card-bg:#ffffff;--page-bg:#f4f7fb;--table-border:#e6eef9;
-      font-family:Inter,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      --card-bg:#ffffff;--page-bg:#f8fafc;--table-border:#e2e8f0;
+      --success:#10b981;--warning:#f59e0b;--highlight:#dbeafe;
+      font-family:'Tajawal',Inter,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial;
     }
     *,*::before,*::after{box-sizing:border-box}
    
     body{
       margin:0;
       background:var(--page-bg);
-      color:#0f172a;
-      padding-block:20px;
-      padding-inline:16px;
+      color:#1e293b;
+      padding-block:16px;
+      padding-inline:12px;
       -webkit-font-smoothing:antialiased;
       line-height:1.6;
     }
@@ -31,158 +32,180 @@
       display:flex;
       gap:12px;
       align-items:center;
-      margin-bottom:20px;
+      margin-bottom:16px;
       flex-wrap:wrap;
     }
     .logo{
-      width:60px;
-      height:60px;
-      border-radius:12px;
+      width:56px;
+      height:56px;
+      border-radius:14px;
       overflow:hidden;
       flex-shrink:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
       background:#fff;
-      box-shadow:0 2px 8px rgba(0,0,0,.08);
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
     }
     .logo img{
       width:100%;
       height:100%;
       object-fit:contain;
-      display:block;
     }
     h1{
       margin:0;
-      font-size:18px;
-      font-weight:600;
+      font-size:19px;
+      font-weight:700;
+      color:#1e293b;
     }
     p.lead{
-      margin:6px 0 16px;
+      margin:4px 0 0;
       color:var(--muted);
-      font-size:13px;
-      line-height:1.5;
+      font-size:13.5px;
     }
 
-    /* الشرح العام في الأعلى */
-    .intro-card{
-      background:linear-gradient(135deg, #e0f2fe, #fef3c7);
-      border:1px solid #bae6fd;
-      border-radius:14px;
+    /* === البطل: الشرح الجذاب === */
+    .hero{
+      background:linear-gradient(135deg, #dbeafe, #fef3c7);
+      border-radius:16px;
       padding:18px;
-      margin-bottom:24px;
-      box-shadow:0 6px 18px rgba(11,113,208,.08);
-      font-size:14px;
-      line-height:1.7;
-    }
-    .intro-card h2{
-      margin:0 0 12px 0;
-      font-size:17px;
-      color:#1e40af;
-      font-weight:600;
-    }
-    .intro-card ul{
-      margin:10px 0 0 20px;
-      padding:0;
-    }
-    .intro-card li{
-      margin-bottom:8px;
-      position:relative;
-    }
-    .intro-card li::marker{
-      color:#0b71d0;
-    }
-    .intro-card strong{
-      color:#1e3a8a;
-    }
-
-    .card{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:16px;
-      box-shadow:0 6px 18px rgba(11,113,208,.06);
       margin-bottom:20px;
-      border:1px solid var(--table-border);
+      box-shadow:0 8px 20px rgba(11,113,208,.12);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
-    h3{
-      margin:0 0 8px 0;
-      font-size:16px;
-      font-weight:600;
+    .hero::before{
+      content:"";
+      position:absolute;
+      top:-50px; right:-50px;
+      width:120px; height:120px;
+      background:radial-gradient(circle, rgba(11,113,208,.15), transparent);
+      border-radius:50%;
     }
-    .muted{
-      color:var(--muted);
-      font-size:12.5px;
-      line-height:1.5;
-    }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      font-size:13px;
-      margin-top:8px;
-    }
-    thead th{
-      text-align:right;
-      padding:10px 6px;
-      background:linear-gradient(90deg,rgba(11,113,208,.06),rgba(255,122,45,.04));
-      color:var(--brand-blue);
-      font-weight:600;
-      border-bottom:1px solid var(--table-border);
-      font-size:12.5px;
-    }
-    tbody td{
-      padding:8px 6px;
-      border-bottom:1px solid var(--table-border);
-      color:#0f172a;
-      font-size:13px;
-    }
-    .flexible-note{
-      background:#f0f7ff;
-      border:1px solid #b8d4f5;
-      padding:10px;
-      border-radius:8px;
-      margin-top:12px;
-      font-size:12.5px;
+    .hero h2{
+      margin:0 0 10px;
+      font-size:18px;
       color:#1e40af;
-      line-height:1.5;
+      font-weight:700;
     }
-    .flexible-note strong{
-      color:#1e3a8a;
+    .hero p{
+      margin:0 0 14px;
+      font-size:14px;
+      color:#1e293b;
     }
-    @media (max-width: 480px) {
-      body { padding-inline:12px; padding-block:16px; }
-      .logo { width:50px; height:50px; }
-      h1 { font-size:17px; }
-      .intro-card { padding:16px; font-size:13.5px; }
-      .card { padding:14px; }
-      table { font-size:12px; }
-      thead th, tbody td { padding:6px 4px; font-size:11.5px; }
-      .flexible-note { font-size:11.5px; padding:8px; }
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+      gap:10px;
+      margin-top:12px;
     }
-    @media (max-width: 360px) {
-      thead th, tbody td { font-size:11px; padding:5px 3px; }
-    }
-    footer{
-      color:var(--muted);
-      font-size:12px;
-      margin-top:8px;
+    .feature{
+      background:#fff;
+      border-radius:10px;
+      padding:10px 8px;
+      font-size:12.5px;
+      font-weight:600;
+      color:#1e40af;
+      box-shadow:0 2px 6px rgba(0,0,0,.06);
       text-align:center;
     }
-    footer > div{
-      display:flex;
-      justify-content:space-between;
-      gap:8px;
-      flex-wrap:wrap;
-      font-size:12px;
+    .feature svg{
+      width:20px; height:20px; margin-bottom:4px; fill:currentColor;
     }
-    .note{
-      background:#fff7ed;
-      border:1px solid #ffe3c6;
-      padding:10px;
-      border-radius:8px;
-      color:#7a4b00;
+
+    /* === كروت الخطط – جذابة ومركزة === */
+    .plans-grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .plan-card{
+      background:var(--card-bg);
+      border-radius:14px;
+      padding:16px;
+      border:1px solid var(--table-border);
+      box-shadow:0 6px 16px rgba(11,113,208,.08);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .plan-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 24px rgba(11,113,208,.14);
+    }
+    .plan-card h3{
+      margin:0 0 6px;
+      font-size:16px;
+      font-weight:700;
+      color:#1e293b;
+    }
+    .plan-card .desc{
       font-size:12.5px;
-      line-height:1.5;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .plan-card table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:12.5px;
+      margin:8px 0;
+    }
+    .plan-card th{
+      text-align:right;
+      padding:6px 4px;
+      background:var(--highlight);
+      color:var(--brand-blue);
+      font-weight:600;
+      font-size:11.5px;
+    }
+    .plan-card td{
+      padding:6px 4px;
+      border-bottom:1px dashed #e2e8f0;
+      font-size:12.5px;
+    }
+    .plan-card .price{
+      font-weight:700;
+      color:#1e40af;
+      font-size:13px;
+    }
+    .plan-card .tag{
+      display:inline-block;
+      background:var(--success);
+      color:#fff;
+      font-size:10px;
+      padding:2px 6px;
+      border-radius:6px;
+      margin-top:6px;
+      font-weight:600;
+    }
+    .plan-card .flexible{
+      font-size:11.5px;
+      color:#1e40af;
       margin-top:8px;
+      line-height:1.5;
+    }
+
+    .note{
+      background:#fffbeb;
+      border:1px solid #fde68a;
+      padding:10px;
+      border-radius:10px;
+      font-size:12.5px;
+      color:#92400e;
+      margin:16px 0;
+      text-align:center;
+    }
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:11.5px;
+      margin-top:16px;
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 { font-size:17px; }
+      .hero p { font-size:13.5px; }
+      .features { grid-template-columns:1fr 1fr; }
+      .plan-card h3 { font-size:15px; }
+      .plan-card table { font-size:11.5px; }
+      .plan-card th, .plan-card td { padding:5px 3px; }
     }
   </style>
 </head>
@@ -191,166 +214,155 @@
     <!-- الهيدر -->
     <header>
       <div class="logo">
-        <img src="https://huma-volve.com/guest/assets/images/logo.png" alt="شعار Huma-volve">
+        <img src="https://huma-volve.com/guest/assets/images/logo.png" alt="Huma-volve">
       </div>
       <div>
         <h1>Huma-volve — خطط التدريب</h1>
-        <p class="lead">خطط مدمجة وواضحة للمشتركين – الساعات اليومية والأسعار بالجنيه المصري.</p>
+        <p class="lead">شغل حقيقي من اليوم الأول – فرصة توظيف مضمونة</p>
       </div>
     </header>
 
-    <!-- الشرح العام في الأعلى -->
-    <div class="intro-card">
-      <h2>كل التدريب عملي 100% – مافيش نظري، شغل حقيقي من اليوم الأول</h2>
-      <p>هتشتغل في بيئة شركة حقيقية، وسط تيم كامل، مع سنيور بيعملك <strong>كود ريفيو يومي</strong> ويوجهك خطوة بخطوة.</p>
-      <ul>
-        <li>كل الشغل <strong>عملي بالكامل</strong> – مافيش محاضرات أو شرح نظري.</li>
-        <li>بتشتغل <strong>وسط تيم حقيقي</strong>: باك إند، فرونت إند، موبايل، تستر، إدارة مشاريع.</li>
-        <li>بتتعامل مع <strong>كل الأدوات اللي بتُستخدم في سوق العمل</strong>: Git, Jira, CI/CD, Docker, APIs, إلخ.</li>
-        <li>كل الباقات بتقوي <strong>بروفايلك على LinkedIn</strong> – بنضيف المشاريع اللي اشتغلتها.</li>
-        <li><strong>الباقات الأعلى</strong> = فرصة أكبر في <strong>الترشيح لشركات كبرى</strong> بعد التخرج.</li>
-      </ul>
-    </div>
-
-    <!-- === خطة الطلاب – 2 ساعة مرنة (القديمة) === -->
-    <div class="card">
-      <h3>خطة الطلاب / مساعدي التدريس – 2 ساعة مرنة (الأساسية)</h3>
-      <p class="muted">الهيكل اليومي: 5 أيام/أسبوع — إلزامي (2) + مرن (2)</p>
-      <table>
-        <thead>
-          <tr>
-            <th>المدة</th><th>أيام/أسبوع</th><th>إلزامي (س/يوم)</th><th>مرن (س/يوم)</th><th>إجمالي الساعات</th><th>السعر (ج.م)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1 شهر</td><td>5</td><td>2</td><td>2</td><td>80</td><td>650</td></tr>
-          <tr><td>2 شهر</td><td>5</td><td>2</td><td>2</td><td>160</td><td>1,170</td></tr>
-          <tr><td>3 شهر</td><td>5</td><td>2</td><td>2</td><td>240</td><td>1,660</td></tr>
-        </tbody>
-      </table>
-      <div class="flexible-note">
-        <strong>الساعات المرنة:</strong> يمكنك إكمالها في أي وقت خلال اليوم حسب جدولك الشخصي، وتُسجّل من خلال إنجاز المهام (Tasks) المطلوبة.
+    <!-- === الشرح الجذاب (Hero) === -->
+    <div class="hero">
+      <h2>ابدأ شغلك كمبرمج محترف من أول يوم</h2>
+      <p>مافيش نظري – كل الشغل عملي 100% وسط تيم حقيقي في شركة بتشتغل فعلاً</p>
+      <div class="features">
+        <div class="feature">
+          <svg><use href="#code"></use></svg> كود ريفيو يومي
+        </div>
+        <div class="feature">
+          <svg><use href="#team"></use></use></svg> تيم كامل (باك، فرونت، موبايل)
+        </div>
+        <div class="feature">
+          <svg><use href="#tools"></use></svg> أدوات السوق (Git, Jira, Docker)
+        </div>
+        <div class="feature">
+          <svg><use href="#linkedin"></use></svg> بروفايل LinkedIn قوي
+        </div>
+        <div class="feature">
+          <svg><use href="#job"></use></svg> ترشيح لشركات كبرى
+        </div>
       </div>
     </div>
 
-    <!-- === خطة الطلاب – 4 ساعات مرنة === -->
-    <div class="card">
-      <h3>خطة الطلاب – 4 ساعات مرنة</h3>
-      <p class="muted">الهيكل اليومي: 5 أيام/أسبوع — إلزامي (2) + مرن (4)</p>
-      <table>
-        <thead>
-          <tr>
-            <th>المدة</th><th>أيام/أسبوع</th><th>إلزامي (س/يوم)</th><th>مرن (س/يوم)</th><th>إجمالي الساعات</th><th>السعر (ج.م)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1 شهر</td><td>5</td><td>2</td><td>4</td><td>120</td><td>850</td></tr>
-          <tr><td>2 شهر</td><td>5</td><td>2</td><td>4</td><td>240</td><td>1,550</td></tr>
-          <tr><td>3 شهر</td><td>5</td><td>2</td><td>4</td><td>360</td><td>2,250</td></tr>
-        </tbody>
-      </table>
-      <div class="flexible-note">
-        <strong>الساعات المرنة:</strong> يمكنك إكمالها في أي وقت خلال اليوم حسب جدولك الشخصي، وتُسجّل من خلال إنجاز المهام (Tasks) المطلوبة.
+    <!-- === الخطط (كروت جذابة) === -->
+    <div class="plans-grid">
+
+      <!-- خطة الطلاب – 2 مرنة -->
+      <div class="plan-card">
+        <h3>طلاب – 2 ساعة مرنة</h3>
+        <p class="desc">إلزامي 2 + مرن 2</p>
+        <table>
+          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>80</td><td class="price">650 ج.م</td></tr>
+            <tr><td>2</td><td>160</td><td class="price">1,170 ج.م</td></tr>
+            <tr><td>3</td><td>240</td><td class="price">1,660 ج.م</td></tr>
+          </tbody>
+        </table>
+        <span class="tag">الأساسية</span>
+        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
       </div>
+
+      <!-- خطة الطلاب – 4 مرنة -->
+      <div class="plan-card">
+        <h3>طلاب – 4 ساعات مرنة</h3>
+        <p class="desc">إلزامي 2 + مرن 4</p>
+        <table>
+          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>120</td><td class="price">850 ج.م</td></tr>
+            <tr><td>2</td><td>240</td><td class="price">1,550 ج.م</td></tr>
+            <tr><td>3</td><td>360</td><td class="price">2,250 ج.م</td></tr>
+          </tbody>
+        </table>
+        <span class="tag">موصى بها</span>
+        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
+      </div>
+
+      <!-- خطة الطلاب – 6 مرنة -->
+      <div class="plan-card">
+        <h3>طلاب – 6 ساعات مرنة</h3>
+        <p class="desc">إلزامي 2 + مرن 6</p>
+        <table>
+          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>160</td><td class="price">1,050 ج.م</td></tr>
+            <tr><td>2</td><td>320</td><td class="price">1,950 ج.م</td></tr>
+            <tr><td>3</td><td>480</td><td class="price">2,850 ج.م</td></tr>
+          </tbody>
+        </table>
+        <span class="tag">أقوى بروفايل</span>
+        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
+      </div>
+
+      <!-- خطة الخريجين – 4 مرنة -->
+      <div class="plan-card">
+        <h3>خريجين – 4 ساعات مرنة</h3>
+        <p class="desc">إلزامي 4 + مرن 4</p>
+        <table>
+          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>160</td><td class="price">1,250 ج.م</td></tr>
+            <tr><td>2</td><td>320</td><td class="price">2,250 ج.م</td></tr>
+            <tr><td>3</td><td>480</td><td class="price">3,190 ج.م</td></tr>
+          </tbody>
+        </table>
+        <span class="tag">مكثفة</span>
+        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
+      </div>
+
+      <!-- خطة الخريجين – 6 مرنة -->
+      <div class="plan-card">
+        <h3>خريجين – 6 ساعات مرنة</h3>
+        <p class="desc">إلزامي 4 + مرن 6</p>
+        <table>
+          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>200</td><td class="price">1,500 ج.م</td></tr>
+            <tr><td>2</td><td>400</td><td class="price">2,750 ج.م</td></tr>
+            <tr><td>3</td><td>600</td><td class="price">3,950 ج.م</td></tr>
+          </tbody>
+        </table>
+        <span class="tag">فرصة توظيف أعلى</span>
+        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
+      </div>
+
+      <!-- خطة الخريجين – 8 مرنة -->
+      <div class="plan-card">
+        <h3>خريجين – 8 ساعات مرنة</h3>
+        <p class="desc">إلزامي 4 + مرن 8</p>
+        <table>
+          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>240</td><td class="price">1,750 ج.م</td></tr>
+            <tr><td>2</td><td>480</td><td class="price">3,250 ج.م</td></tr>
+            <tr><td>3</td><td>720</td><td class="price">4,750 ج.م</td></tr>
+          </tbody>
+        </table>
+        <span class="tag">مضمون توظيف</span>
+        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
+      </div>
+
     </div>
 
-    <!-- === خطة الطلاب – 6 ساعات مرنة === -->
-    <div class="card">
-      <h3>خطة الطلاب – 6 ساعات مرنة</h3>
-      <p class="muted">الهيكل اليومي: 5 أيام/أسبوع — إلزامي (2) + مرن (6)</p>
-      <table>
-        <thead>
-          <tr>
-            <th>المدة</th><th>أيام/أسبوع</th><th>إلزامي (س/يوم)</th><th>مرن (س/يوم)</th><th>إجمالي الساعات</th><th>السعر (ج.م)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1 شهر</td><td>5</td><td>2</td><td>6</td><td>160</td><td>1,050</td></tr>
-          <tr><td>2 شهر</td><td>5</td><td>2</td><td>6</td><td>320</td><td>1,950</td></tr>
-          <tr><td>3 شهر</td><td>5</td><td>2</td><td>6</td><td>480</td><td>2,850</td></tr>
-        </tbody>
-      </table>
-      <div class="flexible-note">
-        <strong>الساعات المرنة:</strong> يمكنك إكمالها في أي وقت خلال اليوم حسب جدولك الشخصي، وتُسجّل من خلال إنجاز المهام (Tasks) المطلوبة.
-      </div>
-    </div>
-
-    <!-- === خطة الخريجين – 4 ساعات مرنة (القديمة) === -->
-    <div class="card">
-      <h3>خطة الخريجين – 4 ساعات مرنة (الأساسية)</h3>
-      <p class="muted">الهيكل اليومي: 5 أيام/أسبوع — مكثف (إلزامي 4 + مرن 4)</p>
-      <table>
-        <thead>
-          <tr>
-            <th>المدة</th><th>أيام/أسبوع</th><th>إلزامي (س/يوم)</th><th>مرن (س/يوم)</th><th>إجمالي الساعات</th><th>السعر (ج.م)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1 شهر</td><td>5</td><td>4</td><td>4</td><td>160</td><td>1,250</td></tr>
-          <tr><td>2 شهر</td><td>5</td><td>4</td><td>4</td><td>320</td><td>2,250</td></tr>
-          <tr><td>3 شهر</td><td>5</td><td>4</td><td>4</td><td>480</td><td>3,190</td></tr>
-        </tbody>
-      </table>
-      <div class="flexible-note">
-        <strong>الساعات المرنة:</strong> يمكنك إكمالها في أي وقت خلال اليوم حسب جدولك الشخصي، وتُسجّل من خلال إنجاز المهام (Tasks) المطلوبة.
-      </div>
-    </div>
-
-    <!-- === خطة الخريجين – 6 ساعات مرنة === -->
-    <div class="card">
-      <h3>خطة الخريجين – 6 ساعات مرنة</h3>
-      <p class="muted">الهيكل اليومي: 5 أيام/أسبوع — مكثف (إلزامي 4 + مرن 6)</p>
-      <table>
-        <thead>
-          <tr>
-            <th>المدة</th><th>أيام/أسبوع</th><th>إلزامي (س/يوم)</th><th>مرن (س/يوم)</th><th>إجمالي الساعات</th><th>السعر (ج.م)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1 شهر</td><td>5</td><td>4</td><td>6</td><td>200</td><td>1,500</td></tr>
-          <tr><td>2 شهر</td><td>5</td><td>4</td><td>6</td><td>400</td><td>2,750</td></tr>
-          <tr><td>3 شهر</td><td>5</td><td>4</td><td>6</td><td>600</td><td>3,950</td></tr>
-        </tbody>
-      </table>
-      <div class="flexible-note">
-        <strong>الساعات المرنة:</strong> يمكنك إكمالها في أي وقت خلال اليوم حسب جدولك الشخصي، وتُسجّل من خلال إنجاز المهام (Tasks) المطلوبة.
-      </div>
-    </div>
-
-    <!-- === خطة الخريجين – 8 ساعات مرنة === -->
-    <div class="card">
-      <h3>خطة الخريجين – 8 ساعات مرنة</h3>
-      <p class="muted">الهيكل اليومي: 5 أيام/أسبوع — مكثف جدًا (إلزامي 4 + مرن 8)</p>
-      <table>
-        <thead>
-          <tr>
-            <th>المدة</th><th>أيام/أسبوع</th><th>إلزامي (س/يوم)</th><th>مرن (س/يوم)</th><th>إجمالي الساعات</th><th>السعر (ج.م)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1 شهر</td><td>5</td><td>4</td><td>8</td><td>240</td><td>1,750</td></tr>
-          <tr><td>2 شهر</td><td>5</td><td>4</td><td>8</td><td>480</td><td>3,250</td></tr>
-          <tr><td>3 شهر</td><td>5</td><td>4</td><td>8</td><td>720</td><td>4,750</td></tr>
-        </tbody>
-      </table>
-      <div class="flexible-note">
-        <strong>الساعات المرنة:</strong> يمكنك إكمالها في أي وقت خلال اليوم حسب جدولك الشخصي، وتُسجّل من خلال إنجاز المهام (Tasks) المطلوبة.
-      </div>
-    </div>
-
-    <!-- ملحوظة عامة -->
-    <div class="card">
-      <div class="note">
-        <strong>ملحوظة:</strong> الأسعار بالجنيه المصري. إجمالي الساعات تقريبي (حسب 4–12 ساعة/يوم × 5 أيام × عدد الأسابيع).
-      </div>
+    <!-- ملحوظة -->
+    <div class="note">
+      <strong>ملحوظة:</strong> الأسعار بالجنيه المصري. إجمالي الساعات تقريبي (5 أيام/أسبوع × 4 أسابيع/شهر).
     </div>
 
     <footer>
-      <div>
-        <div>Huma-volve • Training Plans</div>
-        <div class="muted">مُعدّة للمشتركين والمتدربين</div>
-      </div>
+      Huma-volve • تدريب عملي – توظيف مضمون
     </footer>
   </div>
+
+  <!-- أيقونات SVG -->
+  <svg style="display:none">
+    <symbol id="code" viewBox="0 0 24 24"><path d="M9 19l-7-7 7-7M15 19l7-7-7-7"/></symbol>
+    <symbol id="team" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></symbol>
+    <symbol id="tools" viewBox="0 0 24 24"><path d="M22 2l-6 6 2 2 6-6-2-2zm-6 8l-2-2-6 6 2 2 6-6zm-6 6l-2-2-6 6 2 2 6-6z"/></symbol>
+    <symbol id="linkedin" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-1.31.83-2.41 1.9-2.41.83 0 1.42.9 1.42 2.41v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></symbol>
+    <symbol id="job" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></symbol>
+  </svg>
 </body>
 </html>
