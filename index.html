@@ -61,7 +61,6 @@
       font-size:13.5px;
     }
 
-    /* === البطل: الشرح الجذاب === */
     .hero{
       background:linear-gradient(135deg, #dbeafe, #fef3c7);
       border-radius:16px;
@@ -69,16 +68,6 @@
       margin-bottom:20px;
       box-shadow:0 8px 20px rgba(11,113,208,.12);
       text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      top:-50px; right:-50px;
-      width:120px; height:120px;
-      background:radial-gradient(circle, rgba(11,113,208,.15), transparent);
-      border-radius:50%;
     }
     .hero h2{
       margin:0 0 10px;
@@ -111,7 +100,32 @@
       width:20px; height:20px; margin-bottom:4px; fill:currentColor;
     }
 
-    /* === كروت الخطط – جذابة ومركزة === */
+    .diff-card{
+      background:#f0f9ff;
+      border:1px solid #7dd3fc;
+      border-radius:12px;
+      padding:14px;
+      margin-bottom:20px;
+      font-size:13.5px;
+      line-height:1.7;
+    }
+    .diff-card h3{
+      margin:0 0 10px;
+      font-size:16px;
+      color:#0c4a6b;
+      font-weight:700;
+    }
+    .diff-card ul{
+      margin:0;
+      padding-right:20px;
+    }
+    .diff-card li{
+      margin-bottom:8px;
+    }
+    .diff-card li strong{
+      color:#1e40af;
+    }
+
     .plans-grid{
       display:grid;
       gap:16px;
@@ -159,6 +173,10 @@
       border-bottom:1px dashed #e2e8f0;
       font-size:12.5px;
     }
+    .plan-card .hours{
+      font-weight:600;
+      color:#1e40af;
+    }
     .plan-card .price{
       font-weight:700;
       color:#1e40af;
@@ -173,12 +191,6 @@
       border-radius:6px;
       margin-top:6px;
       font-weight:600;
-    }
-    .plan-card .flexible{
-      font-size:11.5px;
-      color:#1e40af;
-      margin-top:8px;
-      line-height:1.5;
     }
 
     .note{
@@ -206,6 +218,7 @@
       .plan-card h3 { font-size:15px; }
       .plan-card table { font-size:11.5px; }
       .plan-card th, .plan-card td { padding:5px 3px; }
+      .diff-card { padding:12px; font-size:13px; }
     }
   </style>
 </head>
@@ -222,7 +235,7 @@
       </div>
     </header>
 
-    <!-- === الشرح الجذاب (Hero) === -->
+    <!-- === الشرح الجذاب === -->
     <div class="hero">
       <h2>ابدأ شغلك كمبرمج محترف من أول يوم</h2>
       <p>مافيش نظري – كل الشغل عملي 100% وسط تيم حقيقي في شركة بتشتغل فعلاً</p>
@@ -231,117 +244,105 @@
           <svg><use href="#code"></use></svg> كود ريفيو يومي
         </div>
         <div class="feature">
-          <svg><use href="#team"></use></use></svg> تيم كامل (باك، فرونت، موبايل)
+          <svg><use href="#team"></use></svg> تيم كامل
         </div>
         <div class="feature">
-          <svg><use href="#tools"></use></svg> أدوات السوق (Git, Jira, Docker)
+          <svg><use href="#tools"></use></svg> أدوات السوق
         </div>
         <div class="feature">
-          <svg><use href="#linkedin"></use></svg> بروفايل LinkedIn قوي
+          <svg><use href="#linkedin"></use></svg> LinkedIn قوي
         </div>
         <div class="feature">
-          <svg><use href="#job"></use></svg> ترشيح لشركات كبرى
+          <svg><use href="#job"></use></svg> ترشيح شركات
         </div>
       </div>
     </div>
 
-    <!-- === الخطط (كروت جذابة) === -->
+    <!-- === شرح الفرق بين الإلزامي والمرن === -->
+    <div class="diff-card">
+      <h3>الفرق بين الساعات الإلزامية والمرنة</h3>
+      <ul>
+        <li><strong>الإلزامية:</strong> بتحضر على المنصة مع التيم كله، ليك مكتبك الخاص، بتشتغل كأنك في شركة حقيقية، حضور يومي مع التيم.</li>
+        <li><strong>المرنة:</strong> بتقفل المنصة وتشتغل من عندك، تتواصل مع التيم عبر الواتساب، تُسجّل تقدمك بالـ Tasks.</li>
+      </ul>
+    </div>
+
+    <!-- === الخطط (5 خطط فقط) === -->
     <div class="plans-grid">
 
       <!-- خطة الطلاب – 2 مرنة -->
       <div class="plan-card">
         <h3>طلاب – 2 ساعة مرنة</h3>
-        <p class="desc">إلزامي 2 + مرن 2</p>
+        <p class="desc">إلزامي 2 + مرن 2 (4 ساعات يوميًا)</p>
         <table>
-          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>80</td><td class="price">650 ج.م</td></tr>
-            <tr><td>2</td><td>160</td><td class="price">1,170 ج.م</td></tr>
-            <tr><td>3</td><td>240</td><td class="price">1,660 ج.م</td></tr>
+            <tr><td>1</td><td class="hours">80</td><td class="price">650 ج.م</td></tr>
+            <tr><td>2</td><td class="hours">160</td><td class="price">1,170 ج.م</td></tr>
+            <tr><td>3</td><td class="hours">240</td><td class="price">1,660 ج.م</td></tr>
           </tbody>
         </table>
         <span class="tag">الأساسية</span>
-        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
       </div>
 
       <!-- خطة الطلاب – 4 مرنة -->
       <div class="plan-card">
         <h3>طلاب – 4 ساعات مرنة</h3>
-        <p class="desc">إلزامي 2 + مرن 4</p>
+        <p class="desc">إلزامي 2 + مرن 4 (6 ساعات يوميًا)</p>
         <table>
-          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>120</td><td class="price">850 ج.م</td></tr>
-            <tr><td>2</td><td>240</td><td class="price">1,550 ج.م</td></tr>
-            <tr><td>3</td><td>360</td><td class="price">2,250 ج.م</td></tr>
+            <tr><td>1</td><td class="hours">120</td><td class="price">850 ج.م</td></tr>
+            <tr><td>2</td><td class="hours">240</td><td class="price">1,550 ج.م</td></tr>
+            <tr><td>3</td><td class="hours">360</td><td class="price">2,250 ج.م</td></tr>
           </tbody>
         </table>
         <span class="tag">موصى بها</span>
-        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
       </div>
 
       <!-- خطة الطلاب – 6 مرنة -->
       <div class="plan-card">
         <h3>طلاب – 6 ساعات مرنة</h3>
-        <p class="desc">إلزامي 2 + مرن 6</p>
+        <p class="desc">إلزامي 2 + مرن 6 (8 ساعات يوميًا)</p>
         <table>
-          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>160</td><td class="price">1,050 ج.م</td></tr>
-            <tr><td>2</td><td>320</td><td class="price">1,950 ج.م</td></tr>
-            <tr><td>3</td><td>480</td><td class="price">2,850 ج.م</td></tr>
+            <tr><td>1</td><td class="hours">160</td><td class="price">1,050 ج.م</td></tr>
+            <tr><td>2</td><td class="hours">320</td><td class="price">1,950 ج.م</td></tr>
+            <tr><td>3</td><td class="hours">480</td><td class="price">2,850 ج.م</td></tr>
           </tbody>
         </table>
         <span class="tag">أقوى بروفايل</span>
-        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
       </div>
 
       <!-- خطة الخريجين – 4 مرنة -->
       <div class="plan-card">
         <h3>خريجين – 4 ساعات مرنة</h3>
-        <p class="desc">إلزامي 4 + مرن 4</p>
+        <p class="desc">إلزامي 4 + مرن 4 (8 ساعات يوميًا)</p>
         <table>
-          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>160</td><td class="price">1,250 ج.م</td></tr>
-            <tr><td>2</td><td>320</td><td class="price">2,250 ج.م</td></tr>
-            <tr><td>3</td><td>480</td><td class="price">3,190 ج.م</td></tr>
+            <tr><td>1</td><td class="hours">160</td><td class="price">1,250 ج.م</td></tr>
+            <tr><td>2</td><td class="hours">320</td><td class="price">2,250 ج.م</td></tr>
+            <tr><td>3</td><td class="hours">480</td><td class="price">3,190 ج.م</td></tr>
           </tbody>
         </table>
         <span class="tag">مكثفة</span>
-        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
       </div>
 
-      <!-- خطة الخريجين – 6 مرنة -->
+      <!-- خطة الخريجين الجديدة – 2 إلزامي + 6 مرن -->
       <div class="plan-card">
-        <h3>خريجين – 6 ساعات مرنة</h3>
-        <p class="desc">إلزامي 4 + مرن 6</p>
+        <h3>خريجين – 6 ساعات مرنة (جديدة)</h3>
+        <p class="desc">إلزامي 2 + مرن 6 (8 ساعات يوميًا)</p>
         <table>
-          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
+          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>200</td><td class="price">1,500 ج.م</td></tr>
-            <tr><td>2</td><td>400</td><td class="price">2,750 ج.م</td></tr>
-            <tr><td>3</td><td>600</td><td class="price">3,950 ج.م</td></tr>
+            <tr><td>1</td><td class="hours">160</td><td class="price">1,100 ج.م</td></tr>
+            <tr><td>2</td><td class="hours">320</td><td class="price">2,000 ج.م</td></tr>
+            <tr><td>3</td><td class="hours">480</td><td class="price">2,850 ج.م</td></tr>
           </tbody>
         </table>
-        <span class="tag">فرصة توظيف أعلى</span>
-        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
-      </div>
-
-      <!-- خطة الخريجين – 8 مرنة -->
-      <div class="plan-card">
-        <h3>خريجين – 8 ساعات مرنة</h3>
-        <p class="desc">إلزامي 4 + مرن 8</p>
-        <table>
-          <thead><tr><th>الشهر</th><th>الساعات</th><th>السعر</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>240</td><td class="price">1,750 ج.م</td></tr>
-            <tr><td>2</td><td>480</td><td class="price">3,250 ج.م</td></tr>
-            <tr><td>3</td><td>720</td><td class="price">4,750 ج.م</td></tr>
-          </tbody>
-        </table>
-        <span class="tag">مضمون توظيف</span>
-        <p class="flexible"><strong>مرنة:</strong> أي وقت في اليوم – تُسجّل بالـ Tasks</p>
+        <span class="tag">مرنة + توظيف</span>
       </div>
 
     </div>
