@@ -14,7 +14,7 @@
       font-family:'Tajawal',Inter,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial;
     }
     *,*::before,*::after{box-sizing:border-box}
-   
+  
     body{
       margin:0;
       background:var(--page-bg);
@@ -60,7 +60,6 @@
       color:var(--muted);
       font-size:13.5px;
     }
-
     .hero{
       background:linear-gradient(135deg, #dbeafe, #fef3c7);
       border-radius:16px;
@@ -99,7 +98,6 @@
     .feature svg{
       width:20px; height:20px; margin-bottom:4px; fill:currentColor;
     }
-
     .diff-card{
       background:#f0f9ff;
       border:1px solid #7dd3fc;
@@ -125,7 +123,6 @@
     .diff-card li strong{
       color:#1e40af;
     }
-
     .plans-grid{
       display:grid;
       gap:16px;
@@ -154,13 +151,17 @@
       color:var(--muted);
       margin-bottom:10px;
     }
-    .plan-card table{
+    .month-tables{
+      display:grid;
+      gap:12px;
+      margin:8px 0;
+    }
+    .month-table{
       width:100%;
       border-collapse:collapse;
       font-size:12.5px;
-      margin:8px 0;
     }
-    .plan-card th{
+    .month-table th{
       text-align:right;
       padding:6px 4px;
       background:var(--highlight);
@@ -168,19 +169,24 @@
       font-weight:600;
       font-size:11.5px;
     }
-    .plan-card td{
+    .month-table td{
       padding:6px 4px;
       border-bottom:1px dashed #e2e8f0;
       font-size:12.5px;
     }
-    .plan-card .hours{
+    .month-table .hours{
       font-weight:600;
       color:#1e40af;
     }
-    .plan-card .price{
+    .month-table .price{
       font-weight:700;
       color:#1e40af;
       font-size:13px;
+    }
+    .month-table .discount{
+      font-weight:600;
+      color:var(--success);
+      font-size:12px;
     }
     .plan-card .tag{
       display:inline-block;
@@ -192,7 +198,6 @@
       margin-top:6px;
       font-weight:600;
     }
-
     .note{
       background:#fffbeb;
       border:1px solid #fde68a;
@@ -203,21 +208,19 @@
       margin:16px 0;
       text-align:center;
     }
-
     footer{
       text-align:center;
       color:var(--muted);
       font-size:11.5px;
       margin-top:16px;
     }
-
     @media (max-width: 480px) {
       .hero h2 { font-size:17px; }
       .hero p { font-size:13.5px; }
       .features { grid-template-columns:1fr 1fr; }
       .plan-card h3 { font-size:15px; }
-      .plan-card table { font-size:11.5px; }
-      .plan-card th, .plan-card td { padding:5px 3px; }
+      .month-table { font-size:11.5px; }
+      .month-table th, .month-table td { padding:5px 3px; }
       .diff-card { padding:12px; font-size:13px; }
     }
   </style>
@@ -234,7 +237,6 @@
         <p class="lead">شغل حقيقي من اليوم الأول – فرصة توظيف مضمونة</p>
       </div>
     </header>
-
     <!-- === الشرح الجذاب === -->
     <div class="hero">
       <h2>ابدأ شغلك كمبرمج محترف من أول يوم</h2>
@@ -257,7 +259,6 @@
         </div>
       </div>
     </div>
-
     <!-- === شرح الفرق بين الإلزامي والمرن === -->
     <div class="diff-card">
       <h3>الفرق بين الساعات الإلزامية والمرنة</h3>
@@ -266,97 +267,166 @@
         <li><strong>المرنة:</strong> بتقفل المنصة وتشتغل من عندك، تتواصل مع التيم عبر الواتساب، تُسجّل تقدمك بالـ Tasks.</li>
       </ul>
     </div>
-
-    <!-- === الخطط (5 خطط فقط) === -->
+    <!-- === الخطط (5 خطط مع إضافة الأولى) === -->
     <div class="plans-grid">
-
-      <!-- خطة الطلاب – 2 مرنة -->
+      <!-- خطة الطلاب – 2 ساعات مرنة (مُضافة) -->
       <div class="plan-card">
-        <h3>طلاب – 2 ساعة مرنة</h3>
+        <h3>طلاب – 2 ساعات مرنة</h3>
         <p class="desc">إلزامي 2 + مرن 2 (4 ساعات يوميًا)</p>
-        <table>
-          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td class="hours">80</td><td class="price">650 ج.م</td></tr>
-            <tr><td>2</td><td class="hours">160</td><td class="price">1,170 ج.م</td></tr>
-            <tr><td>3</td><td class="hours">240</td><td class="price">1,660 ج.م</td></tr>
-          </tbody>
-        </table>
+        <div class="month-tables">
+          <!-- شهر -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهر</td><td class="hours">80</td><td class="price">880 ج.م</td><td class="discount">خصم 1,520 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- شهرين -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهرين</td><td class="hours">160</td><td class="price">1,760 ج.م</td><td class="discount">خصم 3,040 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- ٣ شهور -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>٣ شهور</td><td class="hours">240</td><td class="price">2,640 ج.م</td><td class="discount">خصم 4,560 ج.م</td></tr>
+            </tbody>
+          </table>
+        </div>
         <span class="tag">الأساسية</span>
       </div>
 
-      <!-- خطة الطلاب – 4 مرنة -->
+      <!-- خطة الطلاب – 4 ساعات مرنة -->
       <div class="plan-card">
         <h3>طلاب – 4 ساعات مرنة</h3>
         <p class="desc">إلزامي 2 + مرن 4 (6 ساعات يوميًا)</p>
-        <table>
-          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td class="hours">120</td><td class="price">850 ج.م</td></tr>
-            <tr><td>2</td><td class="hours">240</td><td class="price">1,550 ج.م</td></tr>
-            <tr><td>3</td><td class="hours">360</td><td class="price">2,250 ج.م</td></tr>
-          </tbody>
-        </table>
+        <div class="month-tables">
+          <!-- شهر -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهر</td><td class="hours">120</td><td class="price">1,232 ج.م</td><td class="discount">خصم 2,368 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- شهرين -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهرين</td><td class="hours">240</td><td class="price">2,464 ج.م</td><td class="discount">خصم 4,736 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- ٣ شهور -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>٣ شهور</td><td class="hours">360</td><td class="price">3,696 ج.م</td><td class="discount">خصم 7,104 ج.م</td></tr>
+            </tbody>
+          </table>
+        </div>
         <span class="tag">موصى بها</span>
       </div>
 
-      <!-- خطة الطلاب – 6 مرنة -->
+      <!-- خطة الطلاب – 6 ساعات مرنة -->
       <div class="plan-card">
         <h3>طلاب – 6 ساعات مرنة</h3>
         <p class="desc">إلزامي 2 + مرن 6 (8 ساعات يوميًا)</p>
-        <table>
-          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td class="hours">160</td><td class="price">1,050 ج.م</td></tr>
-            <tr><td>2</td><td class="hours">320</td><td class="price">1,950 ج.م</td></tr>
-            <tr><td>3</td><td class="hours">480</td><td class="price">2,850 ج.م</td></tr>
-          </tbody>
-        </table>
+        <div class="month-tables">
+          <!-- شهر -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهر</td><td class="hours">160</td><td class="price">1,584 ج.م</td><td class="discount">خصم 3,216 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- شهرين -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهرين</td><td class="hours">320</td><td class="price">3,168 ج.م</td><td class="discount">خصم 6,432 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- ٣ شهور -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>٣ شهور</td><td class="hours">480</td><td class="price">4,752 ج.م</td><td class="discount">خصم 9,648 ج.م</td></tr>
+            </tbody>
+          </table>
+        </div>
         <span class="tag">أقوى بروفايل</span>
       </div>
 
-      <!-- خطة الخريجين – 4 مرنة -->
+      <!-- خطة الخريجين – 4 ساعات مرنة -->
       <div class="plan-card">
         <h3>خريجين – 4 ساعات مرنة</h3>
         <p class="desc">إلزامي 4 + مرن 4 (8 ساعات يوميًا)</p>
-        <table>
-          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td class="hours">160</td><td class="price">1,250 ج.م</td></tr>
-            <tr><td>2</td><td class="hours">320</td><td class="price">2,250 ج.م</td></tr>
-            <tr><td>3</td><td class="hours">480</td><td class="price">3,190 ج.م</td></tr>
-          </tbody>
-        </table>
+        <div class="month-tables">
+          <!-- شهر -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهر</td><td class="hours">160</td><td class="price">1,760 ج.م</td><td class="discount">خصم 3,040 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- شهرين -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهرين</td><td class="hours">320</td><td class="price">3,520 ج.م</td><td class="discount">خصم 6,080 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- ٣ شهور -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>٣ شهور</td><td class="hours">480</td><td class="price">5,280 ج.م</td><td class="discount">خصم 9,120 ج.م</td></tr>
+            </tbody>
+          </table>
+        </div>
         <span class="tag">مكثفة</span>
       </div>
 
-      <!-- خطة الخريجين الجديدة – 2 إلزامي + 6 مرن -->
+      <!-- خطة الخريجين – 6 ساعات مرنة (جديدة) -->
       <div class="plan-card">
         <h3>خريجين – 6 ساعات مرنة (جديدة)</h3>
         <p class="desc">إلزامي 2 + مرن 6 (8 ساعات يوميًا)</p>
-        <table>
-          <thead><tr><th>الشهر</th><th class="hours">الساعات</th><th>السعر</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td class="hours">160</td><td class="price">1,100 ج.م</td></tr>
-            <tr><td>2</td><td class="hours">320</td><td class="price">2,000 ج.م</td></tr>
-            <tr><td>3</td><td class="hours">480</td><td class="price">2,850 ج.م</td></tr>
-          </tbody>
-        </table>
+        <div class="month-tables">
+          <!-- شهر -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهر</td><td class="hours">160</td><td class="price">1,584 ج.م</td><td class="discount">خصم 3,216 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- شهرين -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>شهرين</td><td class="hours">320</td><td class="price">3,168 ج.م</td><td class="discount">خصم 6,432 ج.م</td></tr>
+            </tbody>
+          </table>
+          <!-- ٣ شهور -->
+          <table class="month-table">
+            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody>
+              <tr><td>٣ شهور</td><td class="hours">480</td><td class="price">4,752 ج.م</td><td class="discount">خصم 9,648 ج.م</td></tr>
+            </tbody>
+          </table>
+        </div>
         <span class="tag">مرنة + توظيف</span>
       </div>
-
     </div>
-
     <!-- ملحوظة -->
     <div class="note">
-      <strong>ملحوظة:</strong> الأسعار بالجنيه المصري. إجمالي الساعات تقريبي (5 أيام/أسبوع × 4 أسابيع/شهر).
+      <strong>ملحوظة:</strong> الأسعار بالجنيه المصري. إجمالي الساعات تقريبي (5 أيام/أسبوع × 4 أسابيع/شهر). السعر الأصلي 30 ج.م/ساعة، الساعة الإلزامية 13.2 ج.م، الساعة المرنة 8.8 ج.م (الخصم الإجمالي محسوب فقط).
     </div>
-
     <footer>
       Huma-volve • تدريب عملي – توظيف مضمون
     </footer>
   </div>
-
   <!-- أيقونات SVG -->
   <svg style="display:none">
     <symbol id="code" viewBox="0 0 24 24"><path d="M9 19l-7-7 7-7M15 19l7-7-7-7"/></symbol>
