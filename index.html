@@ -14,214 +14,65 @@
       font-family:'Tajawal',Inter,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial;
     }
     *,*::before,*::after{box-sizing:border-box}
-  
-    body{
-      margin:0;
-      background:var(--page-bg);
-      color:#1e293b;
-      padding-block:16px;
-      padding-inline:12px;
-      -webkit-font-smoothing:antialiased;
-      line-height:1.6;
-    }
-    .container{
-      max-width:980px;
-      margin:0 auto;
-    }
-    header{
+    body{margin:0;background:var(--page-bg);color:#1e293b;padding:16px 12px;line-height:1.6;}
+    .container{max-width:980px;margin:0 auto;}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+    .logo{width:56px;height:56px;border-radius:14px;overflow:hidden;flex-shrink:0;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+    .logo img{width:100%;height:100%;object-fit:contain;}
+    h1{margin:0;font-size:19px;font-weight:700;color:#1e293b;}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:13.5px;}
+    .hero{background:linear-gradient(135deg, #dbeafe, #fef3c7);border-radius:16px;padding:18px;margin-bottom:20px;box-shadow:0 8px 20px rgba(11,113,208,.12);text-align:center;}
+    .hero h2{margin:0 0 10px;font-size:18px;color:#1e40af;font-weight:700;}
+    .hero p{margin:0 0 14px;font-size:14px;color:#1e293b;}
+    .features{display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:10px;margin-top:12px;}
+    .feature{background:#fff;border-radius:10px;padding:10px 8px;font-size:12.5px;font-weight:600;color:#1e40af;box-shadow:0 2px 6px rgba(0,0,0,.06);text-align:center;}
+    .feature svg{width:20px;height:20px;margin-bottom:4px;fill:currentColor;}
+    .diff-card{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:12px;padding:14px;margin-bottom:20px;font-size:13.5px;line-height:1.7;}
+    .diff-card h3{margin:0 0 10px;font-size:16px;color:#0c4a6b;font-weight:700;}
+    .diff-card ul{margin:0;padding-right:20px;}
+    .diff-card li{margin-bottom:8px;}
+    .diff-card li strong{color:#1e40af;}
+
+    /* === أقسام الخطط (صفوف أفقية) === */
+    .plans-section{margin-bottom:36px;}
+    .plans-section h2{font-size:18px;color:#1e40af;margin:0 0 16px;text-align:center;font-weight:700;}
+    .plans-row{
       display:flex;
-      gap:12px;
-      align-items:center;
-      margin-bottom:16px;
-      flex-wrap:wrap;
-    }
-    .logo{
-      width:56px;
-      height:56px;
-      border-radius:14px;
-      overflow:hidden;
-      flex-shrink:0;
-      background:#fff;
-      box-shadow:0 4px 12px rgba(0,0,0,.1);
-    }
-    .logo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
-    h1{
-      margin:0;
-      font-size:19px;
-      font-weight:700;
-      color:#1e293b;
-    }
-    p.lead{
-      margin:4px 0 0;
-      color:var(--muted);
-      font-size:13.5px;
-    }
-    .hero{
-      background:linear-gradient(135deg, #dbeafe, #fef3c7);
-      border-radius:16px;
-      padding:18px;
-      margin-bottom:20px;
-      box-shadow:0 8px 20px rgba(11,113,208,.12);
-      text-align:center;
-    }
-    .hero h2{
-      margin:0 0 10px;
-      font-size:18px;
-      color:#1e40af;
-      font-weight:700;
-    }
-    .hero p{
-      margin:0 0 14px;
-      font-size:14px;
-      color:#1e293b;
-    }
-    .features{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
-      gap:10px;
-      margin-top:12px;
-    }
-    .feature{
-      background:#fff;
-      border-radius:10px;
-      padding:10px 8px;
-      font-size:12.5px;
-      font-weight:600;
-      color:#1e40af;
-      box-shadow:0 2px 6px rgba(0,0,0,.06);
-      text-align:center;
-    }
-    .feature svg{
-      width:20px; height:20px; margin-bottom:4px; fill:currentColor;
-    }
-    .diff-card{
-      background:#f0f9ff;
-      border:1px solid #7dd3fc;
-      border-radius:12px;
-      padding:14px;
-      margin-bottom:20px;
-      font-size:13.5px;
-      line-height:1.7;
-    }
-    .diff-card h3{
-      margin:0 0 10px;
-      font-size:16px;
-      color:#0c4a6b;
-      font-weight:700;
-    }
-    .diff-card ul{
-      margin:0;
-      padding-right:20px;
-    }
-    .diff-card li{
-      margin-bottom:8px;
-    }
-    .diff-card li strong{
-      color:#1e40af;
-    }
-    .plans-grid{
-      display:grid;
       gap:16px;
-      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      overflow-x:auto;
+      padding-bottom:8px;
+      scroll-snap-type:x mandatory;
     }
     .plan-card{
+      min-width:300px;
+      flex:1;
       background:var(--card-bg);
       border-radius:14px;
       padding:16px;
       border:1px solid var(--table-border);
       box-shadow:0 6px 16px rgba(11,113,208,.08);
       transition:transform .2s, box-shadow .2s;
+      scroll-snap-align:start;
     }
-    .plan-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 12px 24px rgba(11,113,208,.14);
-    }
-    .plan-card h3{
-      margin:0 0 6px;
-      font-size:16px;
-      font-weight:700;
-      color:#1e293b;
-    }
-    .plan-card .desc{
-      font-size:12.5px;
-      color:var(--muted);
-      margin-bottom:10px;
-    }
-    .month-tables{
-      display:grid;
-      gap:12px;
-      margin:8px 0;
-    }
-    .month-table{
-      width:100%;
-      border-collapse:collapse;
-      font-size:12.5px;
-    }
-    .month-table th{
-      text-align:right;
-      padding:6px 4px;
-      background:var(--highlight);
-      color:var(--brand-blue);
-      font-weight:600;
-      font-size:11.5px;
-    }
-    .month-table td{
-      padding:6px 4px;
-      border-bottom:1px dashed #e2e8f0;
-      font-size:12.5px;
-    }
-    .month-table .hours{
-      font-weight:600;
-      color:#1e40af;
-    }
-    .month-table .price{
-      font-weight:700;
-      color:#1e40af;
-      font-size:13px;
-    }
-    .month-table .discount{
-      font-weight:600;
-      color:var(--success);
-      font-size:12px;
-    }
-    .plan-card .tag{
-      display:inline-block;
-      background:var(--success);
-      color:#fff;
-      font-size:10px;
-      padding:2px 6px;
-      border-radius:6px;
-      margin-top:6px;
-      font-weight:600;
-    }
-    .note{
-      background:#fffbeb;
-      border:1px solid #fde68a;
-      padding:10px;
-      border-radius:10px;
-      font-size:12.5px;
-      color:#92400e;
-      margin:16px 0;
-      text-align:center;
-    }
-    footer{
-      text-align:center;
-      color:var(--muted);
-      font-size:11.5px;
-      margin-top:16px;
-    }
-    @media (max-width: 480px) {
-      .hero h2 { font-size:17px; }
-      .hero p { font-size:13.5px; }
-      .features { grid-template-columns:1fr 1fr; }
-      .plan-card h3 { font-size:15px; }
-      .month-table { font-size:11.5px; }
-      .month-table th, .month-table td { padding:5px 3px; }
-      .diff-card { padding:12px; font-size:13px; }
+    .plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(11,113,208,.14);}
+    .plan-card h3{margin:0 0 6px;font-size:16px;font-weight:700;color:#1e293b;}
+    .plan-card .desc{font-size:12.5px;color:var(--muted);margin-bottom:10px;}
+    .price-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0;}
+    .price-table th{text-align:right;padding:6px 4px;background:var(--highlight);color:var(--brand-blue);font-weight:600;font-size:11.5px;}
+    .price-table td{padding:6px 4px;border-bottom:1px dashed #e2e8f0;}
+    .price-table .hours{font-weight:600;color:#1e40af;}
+    .price-table .price{font-weight:700;color:#1e40af;font-size:13px;}
+    .price-table .discount{font-weight:600;color:var(--success);font-size:12px;}
+    .plan-card .tag{display:inline-block;background:var(--success);color:#fff;font-size:10px;padding:2px 6px;border-radius:6px;margin-top:6px;font-weight:600;}
+    .note{background:#fffbeb;border:1px solid #fde68a;padding:10px;border-radius:10px;font-size:12.5px;color:#92400e;margin:16px 0;text-align:center;}
+    footer{text-align:center;color:var(--muted);font-size:11.5px;margin-top:16px;}
+
+    @media (max-width: 480px){
+      .hero h2{font-size:17px;}.hero p{font-size:13.5px;}.features{grid-template-columns:1fr 1fr;}
+      .plan-card h3{font-size:15px;}.price-table{font-size:11.5px;}.price-table th, .price-table td{padding:5px 3px;}
+      .diff-card{padding:12px;font-size:13px;}
+      .plans-row{gap:12px;}
+      .plan-card{min-width:260px;}
     }
   </style>
 </head>
@@ -237,29 +88,21 @@
         <p class="lead">شغل حقيقي من اليوم الأول – فرصة توظيف مضمونة</p>
       </div>
     </header>
-    <!-- === الشرح الجذاب === -->
+
+    <!-- الشرح الجذاب -->
     <div class="hero">
       <h2>ابدأ شغلك كمبرمج محترف من أول يوم</h2>
       <p>مافيش نظري – كل الشغل عملي 100% وسط تيم حقيقي في شركة بتشتغل فعلاً</p>
       <div class="features">
-        <div class="feature">
-          <svg><use href="#code"></use></svg> كود ريفيو يومي
-        </div>
-        <div class="feature">
-          <svg><use href="#team"></use></svg> تيم كامل
-        </div>
-        <div class="feature">
-          <svg><use href="#tools"></use></svg> أدوات السوق
-        </div>
-        <div class="feature">
-          <svg><use href="#linkedin"></use></svg> LinkedIn قوي
-        </div>
-        <div class="feature">
-          <svg><use href="#job"></use></svg> ترشيح شركات
-        </div>
+        <div class="feature"><svg><use href="#code"></use></svg> كود ريفيو يومي</div>
+        <div class="feature"><svg><use href="#team"></use></svg> تيم كامل</div>
+        <div class="feature"><svg><use href="#tools"></use></svg> أدوات السوق</div>
+        <div class="feature"><svg><use href="#linkedin"></use></svg> LinkedIn قوي</div>
+        <div class="feature"><svg><use href="#job"></use></svg> ترشيح شركات</div>
       </div>
     </div>
-    <!-- === شرح الفرق بين الإلزامي والمرن === -->
+
+    <!-- الفرق بين الإلزامي والمرن -->
     <div class="diff-card">
       <h3>الفرق بين الساعات الإلزامية والمرنة</h3>
       <ul>
@@ -267,80 +110,93 @@
         <li><strong>المرنة:</strong> بتقفل المنصة وتشتغل من عندك، تتواصل مع التيم عبر الواتساب، تُسجّل تقدمك بالـ Tasks.</li>
       </ul>
     </div>
-    <!-- === الخطط === -->
-    <div class="plans-grid">
-      <!-- خطة ال6 ساعات بشكل يومي -->
-      <div class="plan-card">
-        <h3>6 ساعات بشكل يومي</h3>
-        <p class="desc">إلزامي 2 + مرن 4 (6 ساعات يوميًا)</p>
-        <div class="month-tables">
-          <!-- شهر -->
-          <table class="month-table">
-            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
-            <tbody>
-              <tr><td>شهر</td><td class="hours">120</td><td class="price">1350 ج.م</td><td class="discount">خصم 1,668 ج.م </td></tr>
-            </tbody>
-          </table>
-          
-          <!-- ٣ شهور -->
-          <table class="month-table">
-            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
-            <tbody>
-              <tr><td>٣ شهور</td><td class="hours">360</td><td class="price">4000 ج.م</td><td class="discount">خصم 5,004 ج.م </td></tr>
-            </tbody>
-          </table>
-        </div>
-        <span class="tag">موصى بها</span>
-      </div>
-   
 
-      <!-- خطة ال 8 ساعات بشكل يومي مع اختلاف عدد الساعات الاجباري -->
-      <div class="plan-card">
-        <h3> 8 ساعات بشكل يومي مع اختلاف عدد الساعات الاجباري</h3>
-        <p class="desc">إلزامي 2 + مرن 6 (8 ساعات يوميًا)</p>
-        <div class="month-tables">
-          <!-- شهر -->
-          <table class="month-table">
-            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
-            <tbody>
-              <tr><td>شهر</td><td class="hours">160</td><td class="price">2,532 ج.م</td><td class="discount">خصم 2,268 ج.م </td></tr>
-            </tbody>
+    <!-- === باقات الشهر (صف أفقي) === -->
+    <div class="plans-section">
+      <h2>باقات الشهر الواحد</h2>
+      <div class="plans-row">
+
+        <!-- خطة 6 ساعات -->
+        <div class="plan-card">
+          <h3>6 ساعات يوميًا</h3>
+          <p class="desc">إلزامي 2 + مرن 4</p>
+          <table class="price-table">
+            <thead><tr><th>المدة</th><th>الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody><tr><td>شهر</td><td class="hours">120</td><td class="price">1350 ج.م</td><td class="discount">خصم 1,668 ج.م</td></tr></tbody>
           </table>
-          <!-- ٣ شهور -->
-          <table class="month-table">
-            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
-            <tbody>
-              <tr><td>٣ شهور</td><td class="hours">480</td><td class="price">6500 ج.م</td><td class="discount">خصم 6,804 ج.م </td></tr>
-            </tbody>
-          </table>
+          <span class="tag">موصى بها</span>
         </div>
-        <span class="tag">مكثفة</span>
+
+        <!-- خطة 8 ساعات (إلزامي 2 + مرن 6) -->
+        <div class="plan-card">
+          <h3>8 ساعات يوميًا</h3>
+          <p class="desc">إلزامي 2 + مرن 6</p>
+          <table class="price-table">
+            <thead><tr><th>المدة</th><th>الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody><tr><td>شهر</td><td class="hours">160</td><td class="price">2,532 ج.م</td><td class="discount">خصم 2,268 ج.م</td></tr></tbody>
+          </table>
+          <span class="tag">مكثفة</span>
+        </div>
+
+        <!-- خطة 8 ساعات (إلزامي 4 + مرن 4) -->
+        <div class="plan-card">
+          <h3>8 ساعات يوميًا</h3>
+          <p class="desc">إلزامي 4 + مرن 4</p>
+          <table class="price-table">
+            <thead><tr><th>المدة</th><th>الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody><tr><td>شهر</td><td class="hours">160</td><td class="price">2,664 ج.م</td><td class="discount">خصم 2,136 ج.م</td></tr></tbody>
+          </table>
+          <span class="tag">مكثفة</span>
+        </div>
+
       </div>
     </div>
-       <!-- خطة ال 8 ساعات بشكل يومي -->
-      <div class="plan-card">
-        <h3> 8 ساعات بشكل يومي</h3>
-        <p class="desc">إلزامي 4 + مرن 4 (8 ساعات يوميًا)</p>
-        <div class="month-tables">
-          <!-- شهر -->
-          <table class="month-table">
-            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
-            <tbody>
-              <tr><td>شهر</td><td class="hours">160</td><td class="price">2,664 ج.م</td><td class="discount">خصم 2,136 ج.م </td></tr>
-            </tbody>
+
+    <!-- === باقات الـ 3 شهور (صف أفقي) === -->
+    <div class="plans-section">
+      <h2>باقات الـ 3 شهور</h2>
+      <div class="plans-row">
+
+        <!-- خطة 6 ساعات -->
+        <div class="plan-card">
+          <h3>6 ساعات يوميًا</h3>
+          <p class="desc">إلزامي 2 + مرن 4</p>
+          <table class="price-table">
+            <thead><tr><th>المدة</th><th>الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody><tr><td>٣ شهور</td><td class="hours">360</td><td class="price">4000 ج.م</td><td class="discount">خصم 5,004 ج.م</td></tr></tbody>
           </table>
-          <!-- ٣ شهور -->
-          <table class="month-table">
-            <thead><tr><th>المدة</th><th class="hours">الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
-            <tbody>
-              <tr><td>٣ شهور</td><td class="hours">480</td><td class="price">7000 ج.م</td><td class="discount">خصم 6,408 ج.م </td></tr>
-            </tbody>
-          </table>
+          <span class="tag">موصى بها</span>
         </div>
-        <span class="tag">مكثفة</span>
+
+        <!-- خطة 8 ساعات (إلزامي 2 + مرن 6) -->
+        <div class="plan-card">
+          <h3>8 ساعات يوميًا</h3>
+          <p class="desc">إلزامي 2 + مرن 6</p>
+          <table class="price-table">
+            <thead><tr><th>المدة</th><th>الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody><tr><td>٣ شهور</td><td class="hours">480</td><td class="price">6500 ج.م</td><td class="discount">خصم 6,804 ج.م</td></tr></tbody>
+          </table>
+          <span class="tag">مكثفة</span>
+        </div>
+
+        <!-- خطة 8 ساعات (إلزامي 4 + مرن 4) -->
+        <div class="plan-card">
+          <h3>8 ساعات يوميًا</h3>
+          <p class="desc">إلزامي 4 + مرن 4</p>
+          <table class="price-table">
+            <thead><tr><th>المدة</th><th>الساعات</th><th>السعر</th><th>الخصم</th></tr></thead>
+            <tbody><tr><td>٣ شهور</td><td class="hours">480</td><td class="price">7000 ج.م</td><td class="discount">خصم 6,408 ج.م</td></tr></tbody>
+          </table>
+          <span class="tag">مكثفة</span>
+        </div>
+
       </div>
+    </div>
+
     <!-- ملحوظة -->
+    <div class="note">الأسعار شاملة الضريبة — يتم احتساب الساعات على أساس 20 يوم عمل شهريًا</div>
   </div>
+
   <!-- أيقونات SVG -->
   <svg style="display:none">
     <symbol id="code" viewBox="0 0 24 24"><path d="M9 19l-7-7 7-7M15 19l7-7-7-7"/></symbol>
@@ -349,5 +205,7 @@
     <symbol id="linkedin" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-1.31.83-2.41 1.9-2.41.83 0 1.42.9 1.42 2.41v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></symbol>
     <symbol id="job" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></symbol>
   </svg>
+
+  <footer>© 2025 Huma-volve — جميع الحقوق محفوظة</footer>
 </body>
 </html>
