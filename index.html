@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>برنامج ملوك الشاشات السوداء</title>
+<title>PHP & Laravel Mentorship</title>
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-        color: #fff;
+        background: linear-gradient(135deg, #0a1a2f, #1b2c4f); /* هوية Huma-Volve */
+        color: #f0f0f0;
         margin: 0;
         padding: 0;
         line-height: 1.6;
@@ -18,24 +18,24 @@
         max-width: 900px;
         margin: 50px auto;
         padding: 30px;
-        background: #111;
+        background: #111c2e; /* هوية Huma-Volve */
         border-radius: 15px;
-        box-shadow: 0 0 25px rgba(255, 204, 0, 0.5);
+        box-shadow: 0 0 25px rgba(0, 204, 255, 0.5);
         text-align: right;
     }
     h1 {
-        color: #ffcc00;
+        color: #00ccff;
         font-size: 2.5em;
         margin-bottom: 20px;
         text-transform: uppercase;
         animation: glow 1.5s infinite alternate;
     }
     @keyframes glow {
-        from { text-shadow: 0 0 5px #ffcc00; }
-        to { text-shadow: 0 0 20px #ffcc00; }
+        from { text-shadow: 0 0 5px #00ccff; }
+        to { text-shadow: 0 0 20px #00ccff; }
     }
     h2 {
-        color: #ff9900;
+        color: #ffcc00;
         margin-top: 30px;
         font-size: 1.5em;
     }
@@ -43,7 +43,7 @@
         font-size: 1.1em;
     }
     a {
-        color: #00ccff;
+        color: #00ffcc;
         text-decoration: none;
         font-weight: bold;
     }
@@ -57,8 +57,8 @@
         padding: 0 20px;
     }
     .price {
-        background-color: #ff3300;
-        color: #fff;
+        background-color: #ffcc00;
+        color: #0a1a2f;
         padding: 20px;
         border-radius: 12px;
         text-align: center;
@@ -68,8 +68,8 @@
         animation: pulse 1.5s infinite alternate;
     }
     @keyframes pulse {
-        from { box-shadow: 0 0 10px #ff3300; }
-        to { box-shadow: 0 0 30px #ff3300; }
+        from { box-shadow: 0 0 10px #ffcc00; }
+        to { box-shadow: 0 0 30px #ffcc00; }
     }
     .cta {
         display: block;
@@ -78,7 +78,7 @@
     }
     .cta a {
         background-color: #00ccff;
-        color: #0d0d0d;
+        color: #0a1a2f;
         padding: 18px 40px;
         border-radius: 12px;
         font-weight: bold;
@@ -86,7 +86,7 @@
         transition: 0.3s;
     }
     .cta a:hover {
-        background-color: #0099cc;
+        background-color: #0099aa;
         transform: scale(1.05);
     }
     .links a {
@@ -95,16 +95,27 @@
         font-weight: bold;
     }
     .highlight {
-        background-color: #222;
+        background-color: #0d2a44;
         padding: 15px;
         border-radius: 10px;
         margin-top: 20px;
+        border-left: 5px solid #00ccff;
+    }
+    .topics {
+        background-color: #0d1f36;
+        border: 2px solid #00ccff;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 30px;
+    }
+    .topics ul {
+        padding-left: 20px;
     }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>🔥 ملوك الشاشات السوداء 🔥</h1>
+    <h1>🔥 PHP & Laravel Mentorship 🔥</h1>
     <p>عايز تشوف شركات البرمجة بتشتغل إزاي؟ عايز تاخد خبرة 7 سنين في وقت قليل تقدر من خلالها ترفع مستواك وتنتج بشكل فعلي، وتحويلك من متلقي للمادة العلمية لمهندس قادر يعمل أكتر من سيستم وسط فريق بشكل فعال. وده بروفايل المهندس <a href="https://www.linkedin.com/in/abanoub-talaat/" target="_blank">Abanoub Talaat</a> اللي هيكون معاكم.</p>
 
     <h2>💻 هتتعلم وتنتج مشاريع حقيقية:</h2>
@@ -123,6 +134,19 @@
         <a href="https://www.figma.com/design/eLc2JfP2cf4dJDK9EQYuCv/Home-Ease?node-id=25-2&p=t" target="_blank">Home Ease</a>
         <a href="https://www.figma.com/design/5FH9hCvFSFaSj4lreKuqKZ/Taskly?node-id=1-20&p=t" target="_blank">Taskly</a>
         <a href="https://www.figma.com/design/RXrA4quyJda1peryqQPC4a/Team-C---Foodify?node-id=0-1&t=seze8GCx1YVHkolO-1" target="_blank">Foodify</a>
+    </div>
+
+    <div class="topics">
+        <h2>📚 الموضوعات اللي هتتشرح وتطبق عمليًا:</h2>
+        <p>دي بعض من الموضوعات اللي هنشرحها وهطبقها بنفسك على السيرفر:</p>
+        <ul>
+            <li>API Versioning</li>
+            <li>Queueable Classes and Jobs</li>
+            <li>Job Dispatching</li>
+            <li>Batching and Chaining</li>
+            <li>Task Scheduling</li>
+        </ul>
+        <p>مش مجرد شرح نظري، هتطبق كل موضوع على السيرفر بإيدك وتكتسب خبرة عملية حقيقية.</p>
     </div>
 
     <div class="highlight">
@@ -153,7 +177,7 @@
     <div class="price">💰 السعر: 3300 جنيه – لفترة محدودة</div>
 
     <div class="cta">
-        <a href="https://www.linkedin.com/in/abanoub-talaat/" target="_blank">🔥 احجز مكانك الآن 🔥</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXMQQ9c3D0F-ZxkNpOhKFtYrOUp85vGCip-DidY2TSA4EEcg/viewform?usp=publish-editor" target="_blank">🔥 احجز مكانك الآن 🔥</a>
     </div>
 </div>
 </body>
